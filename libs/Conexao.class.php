@@ -2,9 +2,9 @@
 class Conexao {
 
   private $username   = 'root';
-  private $password   = 'root';
+  private $password   = '';
   private $banco      = 'tela-principal';
-  private $host       = 'mysql';
+  private $host       = 'localhost';
   private $conn;
 
   public function __construct() {

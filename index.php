@@ -30,12 +30,21 @@ $areaprincipal = new Div("row");
 $menu = new Div("col-sm-2");
 //$menu->addElement($texto);
 
-//itens do menu
+//Funcao para facilitar a visualizacao do var_dump para vias de debug
+function dd($a) {
+    echo '<pre>';
+    var_dump($a);
+    echo '</pre>';
+    //die();  serve para apagar tudo oque vier depois desta funcao
+}
+
+//itens do menu 
 $menuConteudo = new Ul("list-group");
-$menuConteudo->addElement(new li("list-group-item", "Pessoas"));
-$menuConteudo->addElement(new li("list-group-item", "Produtos"));
-$menuConteudo->addElement(new li("list-group-item", "Contas"));
-$menuConteudo->addElement(new li("list-group-item", "Créditos"));
+$menuConteudo->addElement(new li("list-group-item", "Pessoas"),
+new li("list-group-item", "Produtos"),
+new li("list-group-item", "Contas"),
+new li("list-group-item", "Créditos"),
+new li("list-group-item", "Débitos"));
 $menu->addElement($menuConteudo);
 
 $miolo = new Div("col-sm-10 bg-danger");
@@ -50,6 +59,11 @@ $container->addElement($areaprincipal);
 $body->addElement($container);
 
 $html = new Html("pt-br", $head, $body);
+
+$conn = new Conexao();
+$conn->getConn();
+$body->addElement(dd($conn->getSelect("SELECT * FROM menu")));
+
 
 echo $html;
 ?>
