@@ -9,8 +9,8 @@ class Ul {
         $this->sClass = $sClass;
     }
 
-    public function addElement($sAtributo) {
-        $this->aLista[] = $sAtributo;
+    public function addElement(...$sAtributo) {
+        $this->aLista = array_merge($this->aLista, $sAtributo);
     }
 
     public function __toString() {
