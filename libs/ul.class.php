@@ -1,8 +1,7 @@
 <?php
 
 class Ul {
-    
-    private $aLista = array();
+        private $aLista = array();
     private $sClass;
 
     public function __construct($sClass) {
